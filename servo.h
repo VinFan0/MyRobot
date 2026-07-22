@@ -1,0 +1,16 @@
+#ifndef SERVO_H
+#define SERVO_H
+
+#include <ESP32Servo.h>
+
+#define SERVO_PIN 4
+#define SERVO_UPDATE_FREQ_MS 500
+
+Servo servo;
+uint32_t servoLastStep = 0;
+uint8_t servoState = 0b00;
+
+void servo_init(void);
+void servo_update(void);
+
+#endif // SERVO_H
