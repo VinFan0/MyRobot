@@ -1,14 +1,37 @@
+#include "bluetooth.h"
+
 #ifndef MOTORS_H
 #define MOTORS_H
 
-#define MOTOR_FORWARD 0
-#define MOTOR_REVERSE 1
-#define MOTOR_BUTTON_FORWARD 34
-#define MOTOR_BUTTON_REVERSE 35
+#define NUM_MOTORS 1
+#define MOTOR_RIGHT_IDX 0
+#define MOTOR_LEFT_IDX 1
 
-const uint8_t MOTORS[] = {32, 33};
+#define MOTOR_PWM_FREQ    5000 // 5 KHz
+#define MOTOR_PWM_BITS    8    // 0-127
+#define MOTOR_PWM_MAX     250
+#define MOTOR_PWM_MIN     190
+
+typedef struct motor_s{
+  const int forward_pin = NULL;
+  const int reverse_pin = NULL;
+} motor_t;
+
+motor_t MOTORS[] = {
+  {33,32} // Right Motor Forward 33, Reverse 32
+};
+
+typedef struct motor_commands_s{
+  float throttle_val;
+  float yaw_val;
+} motor_commands_t;
+
+motor_commands_t motor_commands;
 
 void motors_init(void);
-void motors_update(void);
+void motors_update(bt_commands_t *bt_readings);
+void motor_forward(int motor_idx, int speed);
+void motor_reverse(int motor_idx, int speed);
+void motor_stop(int motor_idx);
 
 #endif // MOTORS_H
