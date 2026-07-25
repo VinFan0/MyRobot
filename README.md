@@ -23,6 +23,8 @@ Advanced mode provides two joy-stick style controls. One provides a spectrum for
 
 As an example, if the throttle stick is set to forward with a magnitude of 50, and the direction stick is on Left with magnitude 10, the series of Bluetooth characters will be `F 5 0 L 1 0`.
 
+The MyRobot\_Advanced\_Control branch will be built to allow the advanced mode controls.
+
 ## Hardware Requirements
 
 MyRobot is built using perfboard and wires. I may design a custom PCB in the future if I feel the project would benefit, and if it's affordable for me.
