@@ -21,6 +21,8 @@ void loop() {
   // servo_update();
   bluetooth_update(&bt_readings);
   motors_update(&bt_readings);
+
+  BT.read(); // read BT data while not updating
   delay(100);
 }
 

@@ -22,8 +22,7 @@ motor_t MOTORS[] = {
 };
 
 typedef struct motor_commands_s{
-  float throttle_val;
-  float yaw_val;
+  char command;  
 } motor_commands_t;
 
 motor_commands_t motor_commands;

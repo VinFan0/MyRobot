@@ -13,8 +13,44 @@ void motors_init(void) {
 
 void motors_update(bt_commands_t *bt_readings) {
 
-  // TODO: Scale motor inputs
   // Max value from application is 99 + 60 = 159 (positive or negative)
+  // Application min 39
+  // Value is mapped to PWM range in motor_x functions
+
+  switch(bt_readings->command) {
+    case 'F': // Forward
+      motor_forward(MOTOR_RIGHT_IDX, 39);
+      break;
+
+    case 'B': // Backward
+      motor_reverse(MOTOR_RIGHT_IDX, 159);
+      break;
+
+    case 'L': // Left
+      break;
+
+    case 'R': // Right
+      break;
+
+    case 'G': // Forward-Left
+      break;
+
+    case 'H': // Forward-Right
+      break;
+
+    case 'I': // Backward-Left
+      break;
+
+    case 'J': // Backward-Right
+      break;
+
+    case 'S': // Stop
+      motor_stop(MOTOR_RIGHT_IDX);
+      break;
+
+    default: 
+      motor_stop(MOTOR_RIGHT_IDX);
+  }
 
   /*
   Right Motor
@@ -40,6 +76,8 @@ void motors_update(bt_commands_t *bt_readings) {
   -Throttle ---> -(Throttle - Yaw)
   **********************************
   */
+
+  /* Advanced BT Control
   float right_motor_command = abs(bt_readings->throttle_val) - bt_readings->yaw_val;
 
   // Serial.print("Right Motor Value: ");
@@ -65,16 +103,16 @@ void motors_update(bt_commands_t *bt_readings) {
       motor_stop(MOTOR_RIGHT_IDX);
     }
   }
-  // Serial.println(right_motor_command);
-  
+  */
+
 }
 
 void motor_forward(int motor_idx, int speed) {
   speed = constrain(map(speed, 39, 159, MOTOR_PWM_MIN, MOTOR_PWM_MAX), MOTOR_PWM_MIN, MOTOR_PWM_MAX);
   Serial.print("Forward: ");
   Serial.println(speed);
-  ledcWrite(MOTORS[motor_idx].forward_pin, speed);
   ledcWrite(MOTORS[motor_idx].reverse_pin, 0);
+  ledcWrite(MOTORS[motor_idx].forward_pin, speed);
 }
 
 void motor_reverse(int motor_idx, int speed) {
