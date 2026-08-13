@@ -40,9 +40,12 @@ void bluetooth_update(bt_commands_t *bt_readings) {
 
     }*/
     
-    bluetooth_print(bt_readings);
+    // bluetooth_print(bt_readings);
     BT.read();
   }
+
+  BT.read(); // read BT data while not updating
+
 }
 
 void bluetooth_print(bt_commands_t *bt_readings) {

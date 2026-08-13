@@ -19,37 +19,53 @@ void motors_update(bt_commands_t *bt_readings) {
 
   switch(bt_readings->command) {
     case 'F': // Forward
-      motor_forward(MOTOR_RIGHT_IDX, 39);
+      motor_forward(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_forward(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'B': // Backward
-      motor_reverse(MOTOR_RIGHT_IDX, 159);
+      motor_reverse(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_reverse(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'L': // Left
+      motor_forward(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_reverse(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'R': // Right
+      motor_reverse(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_forward(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'G': // Forward-Left
+      motor_forward(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_forward(MOTOR_LEFT_IDX, BT_COMM_MIN);
       break;
 
     case 'H': // Forward-Right
+      motor_forward(MOTOR_RIGHT_IDX, BT_COMM_MIN);
+      motor_forward(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'I': // Backward-Left
+      motor_reverse(MOTOR_RIGHT_IDX, BT_COMM_MAX);
+      motor_reverse(MOTOR_LEFT_IDX, BT_COMM_MIN);
       break;
 
     case 'J': // Backward-Right
+      motor_reverse(MOTOR_RIGHT_IDX, BT_COMM_MIN);
+      motor_reverse(MOTOR_LEFT_IDX, BT_COMM_MAX);
       break;
 
     case 'S': // Stop
       motor_stop(MOTOR_RIGHT_IDX);
+      motor_stop(MOTOR_LEFT_IDX);
       break;
 
     default: 
       motor_stop(MOTOR_RIGHT_IDX);
+      motor_stop(MOTOR_LEFT_IDX);
   }
 
   /*
