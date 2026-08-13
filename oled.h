@@ -10,11 +10,13 @@
  * ├──────────────┼─────────────────┼──────────────┤
  * │ Pin 1        │ CS  (Chip Sel.) │ GPIO 5       │
  * │ Pin 2        │ MOSI (SDO)      │ GPIO 23      │
- * │ Pin 3        │ DC  (Data/Cmd)  │ GPIO 22      │
- * │ Pin 4        │ RES (Reset)     │ GPIO 21      │
+ * │ Pin 3        │ NC              │ NC           │
+ * │ Pin 4        │ SCK (SCLK)      │ GPIO 18      │
  * │ Pin 5        │ GND             │ GND          │
  * │ Pin 6        │ VCC (3.3V)      │ 3.3V         │
- * │ Pin 7        │ SCK (SCLK)      │ GPIO 18      │
+ * │ Pin 7        │ DC  (Data/Cmd)  │ GPIO 22      │
+ * │ Pin 8        │ RES (Reset)     │ GPIO 21      │
+ * │ Pin 9-12     │ NC              │ NC           │
  * └──────────────┴─────────────────┴──────────────┘
  *
  * Library: Adafruit SSD1306 + Adafruit GFX
@@ -83,6 +85,6 @@ uint32_t oledLastStep = 0;
 uint32_t eyes_static_time = SCREEN_REFRESH;
 
 void oled_init(void);
-void oled_update(void);
+void oled_update(bt_commands_t *bt_readings);
 
 #endif // OLED_H

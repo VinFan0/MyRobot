@@ -4,13 +4,13 @@
 #include <ESP32Servo.h>
 
 #define SERVO_PIN 4
-#define SERVO_UPDATE_FREQ_MS 500
+#define SERVO_UPDATE_FREQ_MS 100
 
 Servo servo;
 uint32_t servoLastStep = 0;
 uint8_t servoState = 0b00;
 
 void servo_init(void);
-void servo_update(void);
+void servo_update(bt_commands_t *bt_readings);
 
 #endif // SERVO_H
