@@ -10,7 +10,11 @@ ESP32 Companion Robot
 * ESP32Servo
 
 ## Control Modes
-MyRobot is controlled via Bluetooth with the BT Car Controller-Arduino/ESP mobile application, available from the [Google Play Store](https://play.google.com/store/apps/details?id=com.giristuido.bluetooth.car.controller&hl=en_US). The application offers both *Basic* and *Advanced* control modes. Basic mode consists of 4 main buttons for control: Forward, Backward, Right, Left. Pressing a button, or a valid combination, sends a single, corresponding, character over bluetooth. 
+MyRobot is controlled via Bluetooth with the BT Car Controller-Arduino/ESP mobile application, available from the [Google Play Store](https://play.google.com/store/apps/details?id=com.giristuido.bluetooth.car.controller&hl=en_US). The application offers both *Basic* and *Advanced* control modes. 
+
+Basic mode consists of 4 main buttons for control: Forward, Backward, Right, Left. Pressing a button, or a valid combination, sends a single, corresponding, character over bluetooth.
+
+The MyRobot\_Basic\_Control branch will be built to allow the basic mode controls. 
 
 Advanced mode provides two joy-stick style controls. One provides a spectrum for forward and reverse, while the other controls right and left. When a stick is moved to a location, 6 individual characters are sent in the following pattern.
 
