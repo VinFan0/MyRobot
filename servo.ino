@@ -1,4 +1,4 @@
-#include "servo.h"
+*#include "servo.h"
 
 void servo_init(void) {
   servo.attach(SERVO_PIN);
@@ -9,35 +9,35 @@ void servo_update(bt_commands_t *bt_readings) {
     servoLastStep = millis();
     switch(bt_readings->command) {
       case 'L': // Left
-        servo.write(0);
+        servo.write(SERVO_TURN_LEFT);
         break;
 
       case 'R': // Right
-        servo.write(180);
+        servo.write(SERVO_TURN_RIGHT);
         break;
 
       case 'G': // Forward-Left
-        servo.write(0);
+        servo.write(SERVO_TURN_LEFT);
         break;
 
       case 'H': // Forward-Right
-        servo.write(180);
-        break;
+        servo.write(SERVO_TURN_RIGHT);
+        break;  
 
       case 'I': // Backward-Left
-        servo.write(0);
+        servo.write(SERVO_TURN_LEFT);
         break;
 
       case 'J': // Backward-Right
-        servo.write(180);
+        servo.write(SERVO_TURN_RIGHT);
         break;
 
       case 'S': // Stop
-        servo.write(90);
+        servo.write(SERVO_CENTER);
         break;
 
       default: 
-        servo.write(90);
+        servo.write(SERVO_CENTER);
     }
 
     /* TEST Servo Code

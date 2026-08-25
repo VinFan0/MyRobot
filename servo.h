@@ -5,6 +5,9 @@
 
 #define SERVO_PIN 4
 #define SERVO_UPDATE_FREQ_MS 100
+#define SERVO_TURN_LEFT 130
+#define SERVO_TURN_RIGHT 50
+#define SERVO_CENTER 90
 
 Servo servo;
 uint32_t servoLastStep = 0;
