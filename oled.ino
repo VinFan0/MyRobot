@@ -17,6 +17,9 @@ void oled_init(void) {
     while (true);   // halt
   }
 
+  
+  display.setRotation(2); // Set rotation of display
+
   display.clearDisplay();
   display.display();
 
