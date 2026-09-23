@@ -82,7 +82,7 @@ MyRobot utilizes 2, 2700 RPM, DC motors for drive control, and a servo motor for
     - SSD1306 primary IC
     - 128x32 pixels
     - SPI
-- *TODO* LEDs
+- **TODO** LEDs
     - Three 3mm colored LEDs to provide status information
 
 ### Power Train
