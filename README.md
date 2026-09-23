@@ -30,6 +30,7 @@ ESP32 Companion Robot, structured around a ESP32-WROOM-32 Development Kit. I bui
 - Design V2 body 
     - USB-C Charging port access
 - Implement working advanced controls
+- Make head smaller for screw access
 
 ## Dependency Libraries
 The following libraries must be installed in order to build the project:
