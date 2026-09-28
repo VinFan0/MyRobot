@@ -22,15 +22,14 @@ ESP32 Companion Robot, structured around a ESP32-WROOM-32 Development Kit. I bui
 [Custom PCB Design](https://www.github.com/VinFan0/MyRobot_PCB)
 
 ## To-Do List
-- Replace high-torque drive motors
-- Troubleshoot servo "sticking" while turning
+- Design body for PCB R1.1-A
+    - Make head smaller for screw access
 - Get video of operation
 - Wire up status LEDs
 - Write status LED code
-- Design V2 body 
-    - USB-C Charging port access
+- Replace high-torque drive motors
+- Troubleshoot servo "sticking" while turning
 - Implement working advanced controls
-- Make head smaller for screw access
 
 ## Dependency Libraries
 The following libraries must be installed in order to build the project:
