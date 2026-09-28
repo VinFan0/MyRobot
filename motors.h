@@ -20,8 +20,8 @@ typedef struct motor_s{
 } motor_t;
 
 motor_t MOTORS[] = {
-  {33,32}, // Right Motor Forward 33, Reverse 32
-  {25,26}  // Left Motor Forward 25, Reverse 26
+  {32,33}, // Right Motor Forward 32, Reverse 33
+  {26,25}  // Left Motor Forward 26, Reverse 25
 };
 
 typedef struct motor_commands_s{
