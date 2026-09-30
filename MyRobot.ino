@@ -17,10 +17,11 @@ void setup() {
 
 // ============================================================
 void loop() {
+  bluetooth_update(&bt_readings);
   oled_update(&bt_readings);
   servo_update(&bt_readings);
-  bluetooth_update(&bt_readings);
   motors_update(&bt_readings);
+  bt_readings.oldData = true;
 
   delay(100);
 }
