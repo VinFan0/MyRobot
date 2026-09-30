@@ -10,6 +10,7 @@ void bluetooth_update(bt_commands_t *bt_readings) {
     char cmd = BT.read();
     
     bt_readings->command = cmd;
+    bt_readings->oldData = false;
     
     /* Advanced BT Control
     char val_MSD = 0;
@@ -50,5 +51,7 @@ void bluetooth_update(bt_commands_t *bt_readings) {
 
 void bluetooth_print(bt_commands_t *bt_readings) {
   Serial.print("Command: ");
-  Serial.println(bt_readings->command);  
+  Serial.print(bt_readings->command);  
+  Serial.print("\tData old?: ");
+  Serial.println(bt_readings->oldData);
 }

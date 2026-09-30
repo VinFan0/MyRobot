@@ -16,6 +16,7 @@ typedef struct bt_commands_s {
 
 typedef struct bt_commands_s {
   char command = NULL;
+  bool oldData = true;
 } bt_commands_t;
 
 BluetoothSerial BT;

@@ -56,25 +56,27 @@ void oled_update(bt_commands_t *bt_readings) {
     // ============================================================
 
     // Random Jumps
-    if(bt_readings->command == 'L' || bt_readings->command == 'G' || bt_readings->command == 'I') {
-      eyes.x = EYES_X_MIN;
-    } else if(bt_readings->command == 'R' || bt_readings->command == 'H' || bt_readings->command == 'J') {
-      eyes.x = EYES_X_MAX;
-    } else {
-      uint32_t rand = random(49);
-      if(rand == 0) {
-        eyes.x = random(EYES_X_MIN, EYES_X_MAX);
-        eyes_static_time = 1000;
-      } else if ((rand > 0) && (rand < 5)) {
-        eyes.x = EYES_X_START;
-        eyes_static_time = 1000;
-      } else if (rand == 5) {
-        // blink
-        display.clearDisplay();
-        display.drawLine(eyes.x - (EYES_SEPARATION + (EYES_RAD << 1)), eyes.y, eyes.x - (EYES_SEPARATION), eyes.y, SSD1306_WHITE);
-        display.drawLine(eyes.x + (EYES_SEPARATION + (EYES_RAD << 1)), eyes.y, eyes.x + (EYES_SEPARATION), eyes.y, SSD1306_WHITE);
-        display.display();
-        eyes_static_time = 80;
+    if(!bt_readings->oldData) {
+      if(bt_readings->command == 'L' || bt_readings->command == 'G' || bt_readings->command == 'I') {
+        eyes.x = EYES_X_MIN;
+      } else if(bt_readings->command == 'R' || bt_readings->command == 'H' || bt_readings->command == 'J') {
+        eyes.x = EYES_X_MAX;
+      } else {
+        uint32_t rand = random(49);
+        if(rand == 0) {
+          eyes.x = random(EYES_X_MIN, EYES_X_MAX);
+          eyes_static_time = 1000;
+        } else if ((rand > 0) && (rand < 5)) {
+          eyes.x = EYES_X_START;
+          eyes_static_time = 1000;
+        } else if (rand == 5) {
+          // blink
+          display.clearDisplay();
+          display.drawLine(eyes.x - (EYES_SEPARATION + (EYES_RAD << 1)), eyes.y, eyes.x - (EYES_SEPARATION), eyes.y, SSD1306_WHITE);
+          display.drawLine(eyes.x + (EYES_SEPARATION + (EYES_RAD << 1)), eyes.y, eyes.x + (EYES_SEPARATION), eyes.y, SSD1306_WHITE);
+          display.display();
+          eyes_static_time = 80;
+        }
       }
     }
   }
